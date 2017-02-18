@@ -2,27 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public struct LaneData
-{
-    private int m_ID;
-    private bool m_Open;
-    public LaneData(bool open, int id)
-    {
-        m_Open = open;
-        m_ID = id;
-    }
-
-    public bool GetOpen()
-    {
-        return m_Open;
-    }
-
-    public int GetId()
-    {
-        return m_ID;
-    }
-}
-
 public class PlatformGenerator : MonoBehaviour
 {
     //Public vars
@@ -34,7 +13,6 @@ public class PlatformGenerator : MonoBehaviour
     public List<float> m_Lanes = new List<float>();
     [Range(1f, 100f)]
     public float m_YIncrease = 5.0f;
-    public List<List<LaneData>> m_LaneInformation = new List<List<LaneData>>();
 
     [Header("Initial spawn platforms")]
     [Range(0, 100)]
@@ -43,11 +21,12 @@ public class PlatformGenerator : MonoBehaviour
     //Spawns
     private GameObject m_Clone;
     private List<Vector3> m_Poslist = new List<Vector3>();
-    private int m_BlockedIndex = -1;
-    private List<LaneData> m_Lane1Data = new List<LaneData>();
-    private List<LaneData> m_Lane2Data = new List<LaneData>();
-    private List<LaneData> m_Lane3Data = new List<LaneData>();
+    private int m_LastSpawnIndex = 0;
     private int m_PlatformID = -1;
+    public List<int> m_Lane1ID = new List<int>();
+    public List<int> m_Lane2ID = new List<int>();
+    public List<int> m_Lane3ID = new List<int>();
+    public List<List<int>> m_Identifiers = new List<List<int>>();
 
     //Platform counters
     private int m_TotalPlatNum = 1;
@@ -55,16 +34,17 @@ public class PlatformGenerator : MonoBehaviour
 
 	void Start()
     {
-        m_Lane1Data.Add(new LaneData(true, -1));
-        m_Lane2Data.Add(new LaneData(true, -1));
-        m_Lane3Data.Add(new LaneData(true, -1));
-        m_LaneInformation.Add(m_Lane1Data);
-        m_LaneInformation.Add(m_Lane2Data);
-        m_LaneInformation.Add(m_Lane3Data);
+        m_Lane1ID.Add(-1);
+        m_Lane2ID.Add(-1);
+        m_Lane3ID.Add(-1);
+
+        m_Identifiers.Add(m_Lane1ID);
+        m_Identifiers.Add(m_Lane2ID);
+        m_Identifiers.Add(m_Lane3ID);
 
         //Add first base platform
-        m_Poslist.Add(new Vector3(GetLane(), 0.0f, 0.0f));
-        SpawnRandomPlatform(m_Poslist[0]);
+        m_Poslist.Add(Vector3.zero);
+        SpawnRandomPlatform();
 
         GeneratePlatforms(m_InitNumber);
     }
@@ -94,9 +74,7 @@ public class PlatformGenerator : MonoBehaviour
             m_TotalPlatNum++;
             m_CurPlatNum++;
 
-            m_Poslist.Add(new Vector3(GetLane(), m_Poslist[i - 1].y + m_YIncrease, 0.0f));
-
-            SpawnRandomPlatform(m_Poslist[i]);
+            SpawnRandomPlatform();
         }
     }
 
@@ -105,41 +83,62 @@ public class PlatformGenerator : MonoBehaviour
         m_CurPlatNum--;
     }
 
-    float GetLane()
-    {
-        List<float> temp = new List<float>();
-        for (int i = 0; i < m_Lanes.Count; i++)
-        {
-            if (i != m_BlockedIndex)
-                temp.Add(m_Lanes[i]);
-        }
-
-        m_BlockedIndex = -1;
-
-        int random = Random.Range(0, temp.Count);
-        for (int i = 0; i < m_Lanes.Count; i++)
-        {
-            if (m_Lanes[i] == temp[random])
-            {
-                m_BlockedIndex = i;
-                break;
-            }
-        }
-
-        return temp[random];
-    }
-
-    void SpawnRandomPlatform(Vector3 position)
+    void SpawnRandomPlatform()
     {
         int random = Random.Range(0, m_PlatformPrefabs.Count);
-        m_Clone = (GameObject)Instantiate(m_PlatformPrefabs[random], position, Quaternion.identity);
+        m_Clone = (GameObject)Instantiate(m_PlatformPrefabs[random], Vector3.zero, Quaternion.identity);
 
         if (m_Clone.GetComponent<PlatformIdentifier>())
             m_PlatformID = m_Clone.GetComponent<PlatformIdentifier>().m_ID;
 
-        for (int i = 0; i < m_LaneInformation.Count; i++)
+        //Get lane
+        List<float> temp = new List<float>();
+        for (int i = 0; i < m_Lanes.Count; i++)
         {
-            //if (m_LaneInformation[i][m_LaneInformation[i].Count].GetId == 0)
+            if (m_Identifiers[i][m_Identifiers[i].Count - 1] != m_PlatformID)
+                temp.Add(m_Lanes[i]);
+
+            //if (i != m_LastSpawnIndex)
+            //    temp.Add(m_Lanes[i]);
         }
+
+        m_LastSpawnIndex = -1;
+
+        int randomLane = Random.Range(0, temp.Count);
+        float y = m_Poslist[m_Poslist.Count - 1].y;
+        m_Poslist.Add(new Vector3(temp[randomLane], y + m_YIncrease, 0.0f));
+        m_Clone.transform.position = m_Poslist[m_Poslist.Count - 1];
+        for (int i = 0; i < m_Lanes.Count; i++)
+        {
+            if (m_Lanes[i] == temp[randomLane])
+            {
+                m_LastSpawnIndex = i;
+                m_Identifiers[i].Add(m_PlatformID);
+            }
+            else
+            {
+                m_Identifiers[i].Add(-1);
+            }
+        }
+
+        //string output = "";
+        //for (int i = 0; i < m_Identifiers[0].Count; i++)
+        //{
+        //    for (int j = 0; j  < m_Identifiers.Count; j++)
+        //    {
+        //        output += m_Identifiers[j][i].ToString() + " ";
+        //    }
+        //    Debug.Log(output);
+        //    output = "";
+        //}
+
+        //for (int i = 0; i < m_Identifiers.Count; i++)
+        //{
+
+        //    for (int j = 0; j < m_Identifiers[i].Count; j++)
+        //    {
+        //        Debug.Log(m_Identifiers[i][j]);
+        //    }
+        //}
     }
 }
