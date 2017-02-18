@@ -26,7 +26,8 @@ public class TileGenerator : MonoBehaviour
     public int m_InitNumber = 10;
 
     //Spawns
-    private GameObject m_Clone;
+    private GameObject m_TileClone;
+    private GameObject m_SummaryClone;
     private Vector3 m_CurrentPosition = Vector3.zero;
     private int m_LastSpawnIndex = 0;
     private int m_PlatformID = 0;
@@ -43,12 +44,13 @@ public class TileGenerator : MonoBehaviour
     private int m_CurrentHeight = 0;
 
     //Platform counters
-    private int m_TotalTileNum = 1;
-    private int m_CurTileNum = 1;
+    private int m_TotalTileNum = 0;
+    private int m_CurTileNum = 0;
     private int m_OutPutNum = 0;
 
     //Floor & walls
     private int m_WallCounter = 0;
+    private int m_ParentCounter = 0;
 
 	void Start()
     {
@@ -65,16 +67,12 @@ public class TileGenerator : MonoBehaviour
         //SpawnSingleTile();
 
         GenerateTiles(m_InitNumber);
-        GenerateLevel(m_InitNumber);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
-        {
             GenerateTiles(5);
-            GenerateLevel(5);
-        }
 
         //Generate more platforms if current number is low
         if (m_CurTileNum <= 4)
@@ -85,9 +83,12 @@ public class TileGenerator : MonoBehaviour
 
     void GenerateLevel(int num)
     {
+        m_ParentCounter += num;
+        m_SummaryClone = (GameObject)Instantiate(m_ChunkPrefab, new Vector3(0, m_ParentCounter * m_YIncrease, 0.0f), Quaternion.identity);
         for (int i = 0; i < num; i++)
         {
-            GameObject floor = (GameObject)Instantiate(m_LevelPiecePrefab, new Vector3(0, m_WallCounter * m_YIncrease, 0.0f), Quaternion.identity);
+            m_TileClone = (GameObject)Instantiate(m_LevelPiecePrefab, new Vector3(0, m_WallCounter * m_YIncrease, 0.0f), Quaternion.identity);
+            m_TileClone.transform.SetParent(m_SummaryClone.transform);
 
             m_WallCounter++;
         }
@@ -98,6 +99,7 @@ public class TileGenerator : MonoBehaviour
         //Select platform to generate - get its ID
         //Find a suitable lane to spawn it in, spawn it
         //Assign last ID to corresponding lane
+        GenerateLevel(num);
 
         int temp = m_TotalTileNum + num;
 
@@ -109,7 +111,6 @@ public class TileGenerator : MonoBehaviour
             SpawnSingleTile();
             //SpawnRow();
         }
-
         //OutputTiles();
     }
 
@@ -168,7 +169,7 @@ public class TileGenerator : MonoBehaviour
                 {
                     m_Identifiers[randomLane][m_Identifiers[randomLane].Count - 1] = id;
                     m_TileIDs[randomLane] = id;
-                    m_Clone = (GameObject)Instantiate(m_TilePrefabs[randomSpawn], new Vector3(m_Lanes[randomLane], m_CurrentHeight * m_YIncrease), Quaternion.identity);
+                    m_TileClone = (GameObject)Instantiate(m_TilePrefabs[randomSpawn], new Vector3(m_Lanes[randomLane], m_CurrentHeight * m_YIncrease), Quaternion.identity);
                     temp.RemoveAt(randomLane);
                 }
             }
@@ -185,10 +186,10 @@ public class TileGenerator : MonoBehaviour
 
     void SpawnSingleTile()
     {
-        m_Clone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], Vector3.zero, Quaternion.identity);
+        m_TileClone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], Vector3.zero, Quaternion.identity);
 
-        if (m_Clone.GetComponent<TileIdentifier>())
-            m_PlatformID = m_Clone.GetComponent<TileIdentifier>().m_ID;
+        if (m_TileClone.GetComponent<TileIdentifier>())
+            m_PlatformID = m_TileClone.GetComponent<TileIdentifier>().m_ID;
 
         m_HasRerolled = false;
         m_CurrentReroll = 0;
@@ -230,7 +231,7 @@ public class TileGenerator : MonoBehaviour
 
         //m_Poslist.Add(new Vector3(x, y + m_YIncrease, 0.0f));
         m_CurrentPosition = new Vector3(x, y, -5f);
-        m_Clone.transform.position = m_CurrentPosition;
+        m_TileClone.transform.position = m_CurrentPosition;
 
         for (int i = 0; i < m_Lanes.Count; i++)
         {
@@ -249,6 +250,7 @@ public class TileGenerator : MonoBehaviour
             }
         }
         m_CurrentHeight++;
+        m_TileClone.transform.SetParent(m_SummaryClone.transform);
     }
 
     int RollPrefab()
