@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class PlatformIdentifier : MonoBehaviour
 {
-    public int m_ID = 0;
+    [Range(1, 1000)]
+    public int m_ID = 1;
 }

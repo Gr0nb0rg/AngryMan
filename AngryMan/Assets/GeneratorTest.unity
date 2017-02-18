@@ -357,7 +357,10 @@ MonoBehaviour:
   - -5
   - 0
   - 5
-  m_YIncrease: 2
+  m_YIncrease: 5
+  m_EmptyLaneCounter: 3
+  m_RerollSame: 1
+  m_RerollTimes: 1
   m_InitNumber: 10
 --- !u!4 &1828263022
 Transform:
