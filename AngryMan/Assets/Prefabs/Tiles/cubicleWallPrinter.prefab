@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 4413700560806588}
   - component: {fileID: 114446670139278024}
   - component: {fileID: 82339085919215220}
-  - component: {fileID: 114436221306777146}
   m_Layer: 0
   m_Name: cubicleWallPrinter
   m_TagString: Untagged
@@ -90,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4885097757330880}
   - component: {fileID: 65562736094808196}
+  - component: {fileID: 114168473199655884}
   m_Layer: 0
   m_Name: Wall (1)
   m_TagString: Untagged
@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 114170584929881328}
   m_Layer: 0
   m_Name: Printer (1)
-  m_TagString: Untagged
+  m_TagString: Unbreakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -610,6 +610,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114168473199655884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1604572586526350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0224f61e54f62b94f8e7c17ac60a9a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stopAmbienceOnCollision: 0
+  m_clipPool:
+  - {fileID: 8300000, guid: 6a0006b9b56f02740af4e0f89230a984, type: 3}
 --- !u!114 &114170584929881328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,21 +638,6 @@ MonoBehaviour:
   m_stopAmbienceOnCollision: 1
   m_clipPool:
   - {fileID: 8300000, guid: abd1e118ad429d742b1634b9b98b2845, type: 3}
---- !u!114 &114436221306777146
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1574898014089724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0224f61e54f62b94f8e7c17ac60a9a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_stopAmbienceOnCollision: 0
-  m_clipPool:
-  - {fileID: 8300000, guid: 5085a6461bbf63a4b95767afca6db833, type: 3}
-  - {fileID: 8300000, guid: 6a0006b9b56f02740af4e0f89230a984, type: 3}
 --- !u!114 &114446670139278024
 MonoBehaviour:
   m_ObjectHideFlags: 1

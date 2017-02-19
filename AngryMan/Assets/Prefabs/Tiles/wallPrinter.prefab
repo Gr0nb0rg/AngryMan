@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 114835208606738342}
   m_Layer: 0
   m_Name: Printer
-  m_TagString: Untagged
+  m_TagString: Unbreakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +142,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4663254017602840}
   - component: {fileID: 65833407019951656}
+  - component: {fileID: 114734231951849854}
+  - component: {fileID: 114277470195899310}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -624,6 +626,17 @@ MonoBehaviour:
   m_clipPool:
   - {fileID: 8300000, guid: cc2723e66f18ef5478df925be4aa9a1c, type: 3}
   - {fileID: 8300000, guid: 18e97b7e9c184c340b653e274141bedb, type: 3}
+--- !u!114 &114277470195899310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958253171026084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5549ba51c328d049af20675fed859f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114438484355811750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -651,6 +664,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ID: 9
+--- !u!114 &114734231951849854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958253171026084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0224f61e54f62b94f8e7c17ac60a9a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stopAmbienceOnCollision: 0
+  m_clipPool:
+  - {fileID: 8300000, guid: 8ff1cfda25ec33647948851c7974c2bc, type: 3}
 --- !u!114 &114835208606738342
 MonoBehaviour:
   m_ObjectHideFlags: 1

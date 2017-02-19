@@ -169,10 +169,9 @@ public class PlayerController : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         print(col.gameObject.tag);
-        if (!m_inAction)
+        if ((col.gameObject.tag == "Unbreakable") || (col.gameObject.tag != "Pushable" && !m_inAction))
         {
-            if(col.gameObject.tag != "Pushable")
-                EnableRagdoll(col.relativeVelocity);
+            EnableRagdoll(col.relativeVelocity);
             m_gameOverseer.ActivateGameoverscreen();
         }  
     }

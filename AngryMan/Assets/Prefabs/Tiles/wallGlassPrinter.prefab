@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 114359753744524882}
   m_Layer: 0
   m_Name: Printer
-  m_TagString: Untagged
+  m_TagString: Unbreakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4279916099744222}
   - component: {fileID: 65214550308020140}
+  - component: {fileID: 114415518454193586}
+  - component: {fileID: 114541103476546054}
   m_Layer: 0
   m_Name: GlassWall
   m_TagString: Untagged
@@ -650,6 +652,17 @@ MonoBehaviour:
   m_stopAmbienceOnCollision: 1
   m_clipPool:
   - {fileID: 8300000, guid: abd1e118ad429d742b1634b9b98b2845, type: 3}
+--- !u!114 &114415518454193586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961245951814242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5549ba51c328d049af20675fed859f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114458975404878526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -664,6 +677,20 @@ MonoBehaviour:
   m_stopAmbienceOnCollision: 0
   m_clipPool:
   - {fileID: 8300000, guid: 51a38178d11ba604d8c842bdd417a080, type: 3}
+--- !u!114 &114541103476546054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1961245951814242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0224f61e54f62b94f8e7c17ac60a9a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_stopAmbienceOnCollision: 0
+  m_clipPool:
+  - {fileID: 8300000, guid: 4351380a80731e94281bfa8c3f8ed9d8, type: 3}
 --- !u!136 &136119220511046574
 CapsuleCollider:
   m_ObjectHideFlags: 1

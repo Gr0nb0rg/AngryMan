@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4638075060717490}
   - component: {fileID: 65065145657768154}
+  - component: {fileID: 114706658989545204}
+  - component: {fileID: 114425342196553442}
   m_Layer: 0
   m_Name: GlassWall
   m_TagString: Untagged
@@ -54,7 +56,6 @@ GameObject:
   - component: {fileID: 4946578492212946}
   - component: {fileID: 114160760181629400}
   - component: {fileID: 82964939198130856}
-  - component: {fileID: 114672055656264768}
   m_Layer: 0
   m_Name: wallGlass
   m_TagString: Untagged
@@ -277,7 +278,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -301,7 +302,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114160760181629400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,12 +315,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ID: 9
---- !u!114 &114672055656264768
+--- !u!114 &114425342196553442
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1817249854472800}
+  m_GameObject: {fileID: 1368922155176872}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0224f61e54f62b94f8e7c17ac60a9a74, type: 3}
@@ -328,3 +329,14 @@ MonoBehaviour:
   m_stopAmbienceOnCollision: 0
   m_clipPool:
   - {fileID: 8300000, guid: 51a38178d11ba604d8c842bdd417a080, type: 3}
+--- !u!114 &114706658989545204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368922155176872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5549ba51c328d049af20675fed859f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
