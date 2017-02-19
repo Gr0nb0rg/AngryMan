@@ -90,11 +90,11 @@ public class TileGenerator : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-            CreateLevel();
-    }
+    //void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Return))
+    //        CreateLevel();
+    //}
 
     public void CreateLevel()
     {

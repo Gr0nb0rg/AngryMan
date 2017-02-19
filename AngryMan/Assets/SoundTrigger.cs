@@ -3,18 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(CapsuleCollider))]
+[RequireComponent(typeof(Collider))]
 public class SoundTrigger : MonoBehaviour {
     [SerializeField]
     private List<AudioClip> m_clipPool;
     private AudioSource m_source;
-    private CapsuleCollider m_collider;
+    private Collider m_collider;
 
-    void Start ()
+    void Awake()
     {
         m_source = GetComponent<AudioSource>();
         m_collider = GetComponent<CapsuleCollider>();
-        m_collider.radius = 13;
+        //m_collider.radius = 13;
+    }
+
+    void Start ()
+    {
+
 	}
 
     void OnTriggerEnter(Collider col)
