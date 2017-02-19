@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 867780a835dfe8b418b30a2ec5974565, type: 3}
+  m_Name: Preset1
+  m_EditorClassIdentifier: 
+  m_middleLane:
+  - {fileID: 1109678734617084, guid: a9e3cea82fc7d374eb418b7c2a3a0a76, type: 2}
+  - {fileID: 1109678734617084, guid: a9e3cea82fc7d374eb418b7c2a3a0a76, type: 2}
+  - {fileID: 1109678734617084, guid: a9e3cea82fc7d374eb418b7c2a3a0a76, type: 2}
+  m_LeftLane:
+  - {fileID: 1109678734617084, guid: a9e3cea82fc7d374eb418b7c2a3a0a76, type: 2}
+  - {fileID: 1287504972913004, guid: 9c2129c442134664b95dd9bf7f893247, type: 2}
+  - {fileID: 1452284494231502, guid: 277175fbb319ee74ea05bb897105b70a, type: 2}
+  m_rightLane:
+  - {fileID: 1718629466788756, guid: de1457d3c98faa74bb10c02dd76aa67d, type: 2}
+  - {fileID: 1718629466788756, guid: de1457d3c98faa74bb10c02dd76aa67d, type: 2}
+  - {fileID: 1109678734617084, guid: a9e3cea82fc7d374eb418b7c2a3a0a76, type: 2}

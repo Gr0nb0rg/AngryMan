@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(CircleCollider2D))]
+//[RequireComponent(typeof(Rigidbody2D))]
+//[RequireComponent(typeof(CircleCollider2D))]
 public class PlayerController : MonoBehaviour {
 
     [Header("Settings")]
@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour {
     private float m_dashSpeed;
     [SerializeField]
     private float m_laneSwitchSpeed;
+
+    [SerializeField]
+    private float m_screamForce;
 
     [SerializeField]
     private int m_currentLane;
@@ -33,21 +36,82 @@ public class PlayerController : MonoBehaviour {
     private Vector2 m_middleLanePos;
 
     // Components
-    private Rigidbody2D m_rigidbody;
+    private Rigidbody m_rigidbody;
+    private Collider m_collider;
+    private Animator m_animator;
 
-	void Start ()
+    public Rigidbody[] m_rigidbodies;
+    public Collider[] m_colliders;
+
+    private ScreamBox m_screamBox;
+
+    void Start ()
     {
         m_leftLanePos = new Vector2(-m_distanceBetweenLanes, 0);
         m_rightLanePos = new Vector2(m_distanceBetweenLanes, 0);
         m_middleLanePos = Vector2.zero;
 
-        m_rigidbody = GetComponent<Rigidbody2D>();
+        m_screamBox = FindObjectOfType<ScreamBox>();
+        m_rigidbodies = GetComponentsInChildren<Rigidbody>();
+        m_colliders = GetComponentsInChildren<Collider>();
+        //m_rigidbody = GetComponent<Rigidbody2D>();
         Lanes = new Dictionary<int, Vector2>();
         Lanes.Add(0, m_leftLanePos);
         Lanes.Add(1, m_middleLanePos);
         Lanes.Add(2, m_rightLanePos);
-        m_rigidbody = GetComponent<Rigidbody2D>();
-	}
+        //m_rigidbody = GetComponent<Rigidbody2D>();
+        m_animator = GetComponent<Animator>();
+        m_rigidbody = GetComponent<Rigidbody>();
+        m_collider = GetComponent<Collider>();
+        DisableRagdoll();
+
+    }
+
+    void DisableRagdoll()
+    {
+        for (int i = 0; i < m_rigidbodies.Length; i++)
+        {
+            if(m_rigidbodies[i].transform != this.transform)
+            {
+                m_rigidbodies[i].isKinematic = true;
+               // m_rigidbodies[i].useGravity = false;
+                m_colliders[i].enabled = false;
+            }
+            else
+            {
+                m_rigidbodies[i].isKinematic = false;
+                m_colliders[i].enabled = true;
+            }
+            //m_rigidbodies[i].velocity = Vector3.zero;
+        }
+    }
+
+    void EnableRagdoll(Vector3 initialVelocity)
+    {
+        StopAllCoroutines();
+        m_animator.enabled = false;
+        m_collider.enabled = false;
+        m_rigidbody.isKinematic = true;
+        for (int i = 0; i < m_rigidbodies.Length; i++)
+        {
+            if (m_rigidbodies[i].transform != this.transform)
+            {
+                m_rigidbodies[i].isKinematic = false;
+                m_colliders[i].enabled = true;
+                m_rigidbodies[i].velocity = -initialVelocity;
+                //m_rigidbodies[i].useGravity = false;
+
+            }
+            else
+            {
+                //m_rigidbodies[i].isKinematic = true;
+                //m_rigidbodies[i].useGravity = false;
+                //m_colliders[i].enabled = false;
+            }
+
+            //m_rigidbodies[i].velocity = Vector3.zero;
+        }
+    }
 	
 	void Update ()
     {
@@ -77,12 +141,50 @@ public class PlayerController : MonoBehaviour {
                 print("Went Up");
                 StartCoroutine(DashForward());
             }
+
+            if(Input.GetKeyDown(KeyCode.Space) && !m_inAction)
+            {
+                m_inAction = true;
+                print("BLARGH");
+                StartCoroutine(Scream());
+            }
     }
 
     void MoveForward()
     {
         if(!m_inAction)
             m_rigidbody.velocity = Vector2.up * m_speed * Time.deltaTime;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (!m_inAction)
+        {
+            print(col.gameObject.tag);
+            if(col.gameObject.tag != "Pushable")
+                EnableRagdoll(col.relativeVelocity);
+        }
+            
+    }
+
+    IEnumerator Scream()
+    {
+        // Play sound
+        // Add forces 
+        for (int i = 0; i < m_screamBox.ActiveScreamTargets.Count; i++)
+        {
+            if(m_screamBox.ActiveScreamTargets[i].gameObject.tag == "PushableActivator")
+            {
+                m_screamBox.ActiveScreamTargets[i].gameObject.GetComponent<PropCharacter>().EnableRagdoll(Vector3.up * m_screamForce);
+            }
+            else
+            {
+                //m_screamBox.ActiveScreamTargets[i].velocity = Vector3.up * m_screamForce;
+            }
+        }
+        // wait for sound to stop
+        yield return new WaitForSeconds(1);
+        m_inAction = false;
     }
 
     IEnumerator DashRight()
