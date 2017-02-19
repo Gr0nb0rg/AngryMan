@@ -16,8 +16,12 @@ public class CustomAreaEditor : Editor {
 
     void DrawGenerateButton()
     {
-        if(GUILayout.Button("CreateArea"))
+        if (GUILayout.Button("CreateArea"))
+        {
+            Undo.RecordObject(m_target, "InstantiateArea()");
             m_target.InstantiateArea(Vector3.zero);
+        }
+
     }
 
     // Use this for initialization

@@ -1,0 +1,343 @@
+fileFormatVersion: 2
+guid: 71fe8c95f98d64242a1e11d8c7c1f3a7
+timeCreated: 1487444097
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Belly_ctrl_grp
+    100002: Belly_joint
+    100004: //RootNode
+    100006: Head_joint
+    100008: HipCtrl
+    100010: HipCtrl_group
+    100012: L_Ankle_joint
+    100014: L_Ball_joint
+    100016: L_clav_ctrl_grp
+    100018: L_clavicle_joint
+    100020: L_elbow_ctrl
+    100022: L_elbow_ctrl_group
+    100024: L_elbow_joint
+    100026: l_Foot_ctrl_grp
+    100028: L_hand_joint
+    100030: L_hip_joint
+    100032: l_ik_ctrl_grp
+    100034: L_knee_joint
+    100036: L_leg_ikHandle
+    100038: L_shoulder_ctrl
+    100040: L_shoulder_ctrl_group
+    100042: L_shoulder_joint
+    100044: L_toe_joint
+    100046: L_wrist_joint
+    100048: LowPoly:Group10150
+    100050: Main_Controller
+    100052: Neck_ctrl_grp
+    100054: Neck_joint
+    100056: nurbsCircle1
+    100058: nurbsCircle2
+    100060: nurbsCircle3
+    100062: nurbsCircle4
+    100064: nurbsCircle5
+    100066: nurbsCircle6
+    100068: nurbsCircle7
+    100070: nurbsCircle8
+    100072: nurbsCircle8_group
+    100074: Pelvis_joint
+    100076: R_Ankle_joint
+    100078: R_Ball_joint
+    100080: R_clav_ctrl_grp
+    100082: R_clavicle_joint
+    100084: R_elbow_ctrl
+    100086: R_elbow_ctrl_group
+    100088: R_elbow_joint
+    100090: R_hand_joint
+    100092: R_hip_joint
+    100094: r_ik_ctrl_grp
+    100096: R_knee_joint
+    100098: R_leg_ikHandle
+    100100: R_shoulder_ctrl
+    100102: R_shoulder_ctrl_group
+    100104: R_shoulder_joint
+    100106: R_toe_joint
+    100108: R_wrist_joint
+    100110: Spine1_joint
+    100112: Spine2_joint
+    100114: Top_spine_ctrl
+    100116: Top_spine_ctrl_grp
+    400000: Belly_ctrl_grp
+    400002: Belly_joint
+    400004: //RootNode
+    400006: Head_joint
+    400008: HipCtrl
+    400010: HipCtrl_group
+    400012: L_Ankle_joint
+    400014: L_Ball_joint
+    400016: L_clav_ctrl_grp
+    400018: L_clavicle_joint
+    400020: L_elbow_ctrl
+    400022: L_elbow_ctrl_group
+    400024: L_elbow_joint
+    400026: l_Foot_ctrl_grp
+    400028: L_hand_joint
+    400030: L_hip_joint
+    400032: l_ik_ctrl_grp
+    400034: L_knee_joint
+    400036: L_leg_ikHandle
+    400038: L_shoulder_ctrl
+    400040: L_shoulder_ctrl_group
+    400042: L_shoulder_joint
+    400044: L_toe_joint
+    400046: L_wrist_joint
+    400048: LowPoly:Group10150
+    400050: Main_Controller
+    400052: Neck_ctrl_grp
+    400054: Neck_joint
+    400056: nurbsCircle1
+    400058: nurbsCircle2
+    400060: nurbsCircle3
+    400062: nurbsCircle4
+    400064: nurbsCircle5
+    400066: nurbsCircle6
+    400068: nurbsCircle7
+    400070: nurbsCircle8
+    400072: nurbsCircle8_group
+    400074: Pelvis_joint
+    400076: R_Ankle_joint
+    400078: R_Ball_joint
+    400080: R_clav_ctrl_grp
+    400082: R_clavicle_joint
+    400084: R_elbow_ctrl
+    400086: R_elbow_ctrl_group
+    400088: R_elbow_joint
+    400090: R_hand_joint
+    400092: R_hip_joint
+    400094: r_ik_ctrl_grp
+    400096: R_knee_joint
+    400098: R_leg_ikHandle
+    400100: R_shoulder_ctrl
+    400102: R_shoulder_ctrl_group
+    400104: R_shoulder_joint
+    400106: R_toe_joint
+    400108: R_wrist_joint
+    400110: Spine1_joint
+    400112: Spine2_joint
+    400114: Top_spine_ctrl
+    400116: Top_spine_ctrl_grp
+    4300000: LowPoly:Group10150
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: LowPoly:Group10150
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: LowPoly:Group10150
+        weight: 1
+      - path: Main_Controller
+        weight: 1
+      - path: Main_Controller/HipCtrl_group
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Belly_ctrl_grp
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Belly_ctrl_grp/nurbsCircle3
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/nurbsCircle5
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/nurbsCircle5/L_shoulder_ctrl_group
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/nurbsCircle5/L_shoulder_ctrl_group/L_shoulder_ctrl
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/nurbsCircle5/L_shoulder_ctrl_group/L_shoulder_ctrl/L_elbow_ctrl_group
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/nurbsCircle5/L_shoulder_ctrl_group/L_shoulder_ctrl/L_elbow_ctrl_group/L_elbow_ctrl
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/L_hip_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/L_hip_joint/L_knee_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/L_hip_joint/L_knee_joint/L_Ankle_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/L_hip_joint/L_knee_joint/L_Ankle_joint/L_Ball_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/L_hip_joint/L_knee_joint/L_Ankle_joint/L_Ball_joint/L_toe_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/R_hip_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/R_hip_joint/R_knee_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/R_hip_joint/R_knee_joint/R_Ankle_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/R_hip_joint/R_knee_joint/R_Ankle_joint/R_Ball_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/R_hip_joint/R_knee_joint/R_Ankle_joint/R_Ball_joint/R_toe_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Belly_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/L_clavicle_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/L_clavicle_joint/L_shoulder_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/L_clavicle_joint/L_shoulder_joint/L_elbow_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/L_clavicle_joint/L_shoulder_joint/L_elbow_joint/L_wrist_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/L_clavicle_joint/L_shoulder_joint/L_elbow_joint/L_wrist_joint/L_hand_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/Neck_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/Neck_joint/Head_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/R_clavicle_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/R_clavicle_joint/R_shoulder_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/R_clavicle_joint/R_shoulder_joint/R_elbow_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/R_clavicle_joint/R_shoulder_joint/R_elbow_joint/R_wrist_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Pelvis_joint/Spine1_joint/Spine2_joint/R_clavicle_joint/R_shoulder_joint/R_elbow_joint/R_wrist_joint/R_hand_joint
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl/Neck_ctrl_grp
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl/Neck_ctrl_grp/nurbsCircle4
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp/L_clav_ctrl_grp
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp/R_clav_ctrl_grp
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp/R_clav_ctrl_grp/nurbsCircle6
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp/R_clav_ctrl_grp/nurbsCircle6/R_shoulder_ctrl_group
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp/R_clav_ctrl_grp/nurbsCircle6/R_shoulder_ctrl_group/R_shoulder_ctrl
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp/R_clav_ctrl_grp/nurbsCircle6/R_shoulder_ctrl_group/R_shoulder_ctrl/R_elbow_ctrl_group
+        weight: 1
+      - path: Main_Controller/HipCtrl_group/HipCtrl/Top_spine_ctrl_grp/R_clav_ctrl_grp/nurbsCircle6/R_shoulder_ctrl_group/R_shoulder_ctrl/R_elbow_ctrl_group/R_elbow_ctrl
+        weight: 1
+      - path: Main_Controller/l_ik_ctrl_grp
+        weight: 1
+      - path: Main_Controller/l_ik_ctrl_grp/nurbsCircle1
+        weight: 1
+      - path: Main_Controller/l_ik_ctrl_grp/nurbsCircle1/l_Foot_ctrl_grp
+        weight: 1
+      - path: Main_Controller/l_ik_ctrl_grp/nurbsCircle1/l_Foot_ctrl_grp/nurbsCircle7
+        weight: 1
+      - path: Main_Controller/l_ik_ctrl_grp/nurbsCircle1/L_leg_ikHandle
+        weight: 1
+      - path: Main_Controller/r_ik_ctrl_grp
+        weight: 1
+      - path: Main_Controller/r_ik_ctrl_grp/nurbsCircle2
+        weight: 1
+      - path: Main_Controller/r_ik_ctrl_grp/nurbsCircle2/nurbsCircle8
+        weight: 1
+      - path: Main_Controller/r_ik_ctrl_grp/nurbsCircle2/R_leg_ikHandle
+        weight: 1
+      - path: nurbsCircle8_group
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
