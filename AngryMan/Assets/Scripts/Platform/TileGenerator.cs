@@ -14,6 +14,8 @@ public class TileGenerator : MonoBehaviour
     //Spawning variables
     [Header("Spawning variables")]
     public List<float> m_Lanes = new List<float>();
+    [Range(4, 10)]
+    public int m_SpawnAmount = 4;
     [Range(1f, 10000)]
     public float m_YIncrease = 5.0f;
     [Range(1, 10)]
@@ -23,6 +25,9 @@ public class TileGenerator : MonoBehaviour
     public int m_RerollTimes = 1;
     [Range(1, 10)]
     public int m_SameIDNum = 3;
+    public bool m_AttemptToSkipLevel = false;
+    [Range(0.01f, 1f)]
+    public float m_SkipChance = 0.5f;
 
     [Header("Initial spawn platforms")]
     [Range(0, 100)]
@@ -47,11 +52,9 @@ public class TileGenerator : MonoBehaviour
     private int m_CurrentHeight = 0;
     private int m_SameIDCounter = 0;
     private int m_PreviousID = -1;
-    public List<int> m_AvaliableIDs = new List<int>();
 
     //Platform counters
     private int m_TotalTileNum = 0;
-    private int m_CurTileNum = 0;
     private int m_OutPutNum = 0;
 
     //Floor & walls
@@ -60,16 +63,6 @@ public class TileGenerator : MonoBehaviour
 
 	void Start()
     {
-        for (int i = 0; i < m_TilePrefabs.Count; i++)
-        {
-            if (m_TilePrefabs[i].GetComponent<TileIdentifier>())
-            {
-                int id = m_TilePrefabs[i].GetComponent<TileIdentifier>().m_ID;
-                if (!m_AvaliableIDs.Contains(id))
-                    m_AvaliableIDs.Add(id);
-            }
-        }
-
         m_Identifiers.Add(m_Lane1ID);
         m_Identifiers.Add(m_Lane2ID);
         m_Identifiers.Add(m_Lane3ID);
@@ -80,27 +73,40 @@ public class TileGenerator : MonoBehaviour
             m_TileIDs.Add(0);
         }
 
-        //SpawnSingleTile();
-        GenerateLevel(m_InitNumber);
-        GenerateTiles(m_InitNumber);
+        for (int i = 0; i < 2; i++)
+        {
+            GenerateLevel(m_InitNumber);
+            GenerateTiles(m_InitNumber);
+        }
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
+            CreateLevel();
+    }
+
+    public void CreateLevel()
+    {
+        if (Random.Range(0, 2) == 1)
         {
-            GenerateLevel(4);
-            GenerateTiles(4);
+            GenerateLevel(m_SpawnAmount);
+            GenerateTiles(m_SpawnAmount);
         }
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else
         {
-            int num = m_CustomAreas.RandomizeCustomArea();
-            GenerateLevel(num);
-            GameObject custom = m_CustomAreas.CreateRandomCustomArea(new Vector3(0, m_CurrentHeight * m_YIncrease, 0));
-            if (custom)
-                custom.transform.SetParent(m_SummaryClone.transform);
-            m_CurrentHeight += num;
+            GeneratePreset();
         }
+    }
+
+    void GeneratePreset()
+    {
+        int num = m_CustomAreas.RandomizeCustomArea();
+        GenerateLevel(num);
+        GameObject custom = m_CustomAreas.CreateRandomCustomArea(new Vector3(0, m_CurrentHeight * m_YIncrease, 0));
+        if (custom)
+            custom.transform.SetParent(m_SummaryClone.transform);
+        m_CurrentHeight += num;
     }
 
     void GenerateLevel(int num)
@@ -127,7 +133,6 @@ public class TileGenerator : MonoBehaviour
         for (int i = m_TotalTileNum; i < temp; i++)
         {
             m_TotalTileNum++;
-            m_CurTileNum++;
 
             SpawnSingleTile();
             //SpawnRow();
@@ -149,11 +154,6 @@ public class TileGenerator : MonoBehaviour
         }
         m_OutPutNum = m_Identifiers[0].Count;
         Debug.Log("End of generation");
-    }
-
-    public void RemoveLastPosition()
-    {
-        m_CurTileNum--;
     }
 
     void SpawnRow()
@@ -202,7 +202,20 @@ public class TileGenerator : MonoBehaviour
 
     void SpawnSingleTile()
     {
-        m_TileClone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], new Vector3(0, m_CurrentHeight * m_YIncrease, 0), Quaternion.Euler(-90, 0, 0));
+        if (m_AttemptToSkipLevel)
+        {
+            if (Random.Range(0f, 1f) <= m_SkipChance)
+            {
+                m_CurrentHeight++;
+                for (int i = 0; i < m_Identifiers.Count; i++)
+                {
+                    m_Identifiers[i].Add(0);
+                }
+                return;
+            }
+        }
+
+        m_TileClone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], new Vector3(0, m_CurrentHeight * m_YIncrease, 0), GameSettings.m_squareRotation);
 
         if (m_TileClone.GetComponent<TileIdentifier>())
             m_PlatformID = m_TileClone.GetComponent<TileIdentifier>().m_ID;
@@ -269,22 +282,29 @@ public class TileGenerator : MonoBehaviour
     int RollPrefab()
     {
         int random = Random.Range(0, m_TilePrefabs.Count);
-        if (random == m_PreviousID)
-            m_SameIDCounter++;
-
-        if (m_SameIDCounter >= m_SameIDNum)
-        {
-            List<int> temp = new List<int>();
-            for (int i = 0; i < m_AvaliableIDs.Count; i++)
-            {
-                if (m_AvaliableIDs[i] != m_PreviousID)
-                    temp.Add(m_AvaliableIDs[i]);
-            }
-
-        }
 
         if (m_TilePrefabs[random].GetComponent<TileIdentifier>())
+        {
+            if (m_TilePrefabs[random].GetComponent<TileIdentifier>().m_ID == m_PreviousID)
+                m_SameIDCounter++;
+
+            if (m_SameIDCounter >= m_SameIDNum)
+            {
+                List<int> temp = new List<int>();
+                for (int i = 0; i < m_TilePrefabs.Count; i++)
+                {
+                    if (m_TilePrefabs[i].GetComponent<TileIdentifier>())
+                    {
+                        if (m_TilePrefabs[i].GetComponent<TileIdentifier>().m_ID != m_PreviousID)
+                            temp.Add(i);
+                    }
+                }
+
+                return temp[Random.Range(0, temp.Count)];
+            }
+
             m_PreviousID = m_TilePrefabs[random].GetComponent<TileIdentifier>().m_ID;
+        }
 
         if (m_RerollSame)
         {
