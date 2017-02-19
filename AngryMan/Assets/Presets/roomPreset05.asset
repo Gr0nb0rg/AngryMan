@@ -9,23 +9,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 867780a835dfe8b418b30a2ec5974565, type: 3}
-  m_Name: roomPreset01
+  m_Name: roomPreset05
   m_EditorClassIdentifier: 
   m_middleLane:
-  - {fileID: 1941597679169090, guid: f768bbc6ab6b5354db0a0aab9af784dd, type: 2}
   - {fileID: 0}
-  - {fileID: 1473849056535916, guid: de1457d3c98faa74bb10c02dd76aa67d, type: 2}
+  - {fileID: 1768184824541530, guid: addd14712b7a1f146b963df48597c487, type: 2}
   - {fileID: 0}
+  - {fileID: 1203976368286966, guid: 174f649639a7b1f4ca6fb5d16f5bd123, type: 2}
   - {fileID: 0}
   m_LeftLane:
   - {fileID: 0}
-  - {fileID: 1804354145389866, guid: 1514723761d40844da201844ceda4490, type: 2}
-  - {fileID: 0}
   - {fileID: 1061982613096958, guid: 3d8f134c9ddc13f43b796c558177fe73, type: 2}
+  - {fileID: 0}
+  - {fileID: 1473849056535916, guid: de1457d3c98faa74bb10c02dd76aa67d, type: 2}
   - {fileID: 0}
   m_rightLane:
   - {fileID: 1280805187627732, guid: 60c822bbe3293034b8cc0dc6d6a2bd66, type: 2}
-  - {fileID: 0}
-  - {fileID: 1452284494231502, guid: db7ada61d1187f848aa6b9cb9cb89ac6, type: 2}
   - {fileID: 1061982613096958, guid: 3d8f134c9ddc13f43b796c558177fe73, type: 2}
   - {fileID: 0}
+  - {fileID: 1941597679169090, guid: f768bbc6ab6b5354db0a0aab9af784dd, type: 2}
+  - {fileID: 1656081194706710, guid: 1f6709a5d4e39504299638f6f3240efa, type: 2}

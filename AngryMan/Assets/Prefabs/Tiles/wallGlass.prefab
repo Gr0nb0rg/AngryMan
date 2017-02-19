@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4946578492212946}
+  - component: {fileID: 114160760181629400}
   m_Layer: 0
   m_Name: wallGlass
   m_TagString: Untagged
@@ -219,3 +220,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.5284786, y: 105.02301, z: 79.88301}
   m_Center: {x: -96.28963, y: 47.505463, z: 0.06929016}
+--- !u!114 &114160760181629400
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817249854472800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc1157a26318e42926c5db5e655f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 12

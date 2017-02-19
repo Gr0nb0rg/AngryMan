@@ -940,6 +940,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4628165849827318}
+  - component: {fileID: 114311543182686224}
   m_Layer: 0
   m_Name: paperStacks02
   m_TagString: Untagged
@@ -3361,3 +3362,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 19.970673, y: 3.0703049, z: 20.028625}
   m_Center: {x: 130.01027, y: 1.5291605, z: -10.006142}
+--- !u!114 &114311543182686224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1804354145389866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc1157a26318e42926c5db5e655f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 8

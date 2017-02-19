@@ -69,6 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4825431546546330}
+  - component: {fileID: 114339033682388272}
   m_Layer: 0
   m_Name: wallDoor
   m_TagString: Untagged
@@ -204,7 +205,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 19f91d6cfa79f9b4a83a1a711b4bd36d, type: 2}
+  - {fileID: 1759012891, guid: 0fdec52b334791740b23326f3351e19e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -235,7 +236,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 90a517023b1dcc24698bb50afc3113f1, type: 2}
+  - {fileID: -573041950, guid: 8835233446bcefb49bbed43eed716152, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -317,3 +318,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 6.668509, y: -88.27753, z: 44.1704}
   m_Center: {x: 36.721714, y: 44.137703, z: 81.9153}
+--- !u!114 &114339033682388272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1695209530351448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc1157a26318e42926c5db5e655f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 10

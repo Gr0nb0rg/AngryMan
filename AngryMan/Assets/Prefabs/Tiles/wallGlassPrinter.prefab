@@ -71,6 +71,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4372031505392886}
+  - component: {fileID: 114326691777790760}
   m_Layer: 0
   m_Name: wallGlassPrinter
   m_TagString: Untagged
@@ -330,7 +331,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7378960fd2d26e644b0cd6a5a746db17, type: 2}
+  - {fileID: 2100000, guid: de860ef26f06f5e4b96fdbbc15a58d83, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -414,3 +415,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 39.034523, y: 49.924133, z: 74.527695}
   m_Center: {x: 120.334236, y: 24.700592, z: 80.15264}
+--- !u!114 &114326691777790760
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1835996833570988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cc1157a26318e42926c5db5e655f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ID: 13

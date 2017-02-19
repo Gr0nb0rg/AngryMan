@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8835233446bcefb49bbed43eed716152
-timeCreated: 1487433432
+timeCreated: 1487467029
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -24,7 +24,7 @@ SubstanceImporter:
     materialInformation:
       serializedVersion: 5
       offset: {x: 0, y: 0}
-      scale: {x: 2, y: 2}
+      scale: {x: 7, y: 7}
       generateMipmaps: 1
       generateAllOutputs: 0
       animationUpdateRate: 0
@@ -35,7 +35,7 @@ SubstanceImporter:
           name: _BumpMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 2, y: 1}
+          scale: {x: 7, y: 2}
           offset: {x: 0, y: 0}
       - first:
           name: _DetailAlbedoMap
@@ -59,19 +59,19 @@ SubstanceImporter:
           name: _EmissionMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 2, y: 2}
+          scale: {x: 7, y: 7}
           offset: {x: 0, y: 0}
       - first:
           name: _MainTex
         second:
           texture: {instanceID: 0}
-          scale: {x: 2, y: 2}
+          scale: {x: 7, y: 7}
           offset: {x: 0, y: 0}
       - first:
           name: _MetallicGlossMap
         second:
           texture: {instanceID: 0}
-          scale: {x: 2, y: 1}
+          scale: {x: 7, y: 2}
           offset: {x: 0, y: 0}
       - first:
           name: _OcclusionMap
