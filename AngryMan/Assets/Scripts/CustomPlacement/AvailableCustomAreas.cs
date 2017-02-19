@@ -14,8 +14,8 @@ public class AvailableCustomAreas : ScriptableObject {
         return m_customAreas[m_selectedIndex].m_middleLane.Count;
     }
 
-    public void CreateRandomCustomArea(Vector3 atThisPos)
+    public GameObject CreateRandomCustomArea(Vector3 atThisPos)
     {
-        m_customAreas[m_selectedIndex].InstantiateArea(atThisPos);
+        return m_customAreas[m_selectedIndex].InstantiateArea(atThisPos);
     }
 }

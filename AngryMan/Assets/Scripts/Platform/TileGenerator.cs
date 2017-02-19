@@ -81,7 +81,7 @@ public class TileGenerator : MonoBehaviour
         }
 
         //SpawnSingleTile();
-
+        GenerateLevel(m_InitNumber);
         GenerateTiles(m_InitNumber);
     }
 
@@ -89,15 +89,17 @@ public class TileGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            GenerateLevel(4);
             GenerateTiles(4);
-
-            if (Random.Range(0, 2) == 1)
-            {
-            }
-            //else
-            //{
-            //    m_CurrentHeight += m_CustomAreas.CreateRandomCustomArea(new Vector3(0, m_CurrentHeight * m_YIncrease, 0));
-            //}
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
+        {
+            int num = m_CustomAreas.RandomizeCustomArea();
+            GenerateLevel(num);
+            GameObject custom = m_CustomAreas.CreateRandomCustomArea(new Vector3(0, m_CurrentHeight * m_YIncrease, 0));
+            if (custom)
+                custom.transform.SetParent(m_SummaryClone.transform);
+            m_CurrentHeight += num;
         }
     }
 
@@ -119,7 +121,6 @@ public class TileGenerator : MonoBehaviour
         //Select platform to generate - get its ID
         //Find a suitable lane to spawn it in, spawn it
         //Assign last ID to corresponding lane
-        GenerateLevel(num);
 
         int temp = m_TotalTileNum + num;
 
