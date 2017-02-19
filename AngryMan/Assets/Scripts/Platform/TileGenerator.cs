@@ -20,6 +20,8 @@ public class TileGenerator : MonoBehaviour
     public bool m_RerollSame = false;
     [Range(1, 10)]
     public int m_RerollTimes = 1;
+    [Range(1, 10)]
+    public int m_SameIDNum = 3;
 
     [Header("Initial spawn platforms")]
     [Range(0, 100)]
@@ -42,6 +44,9 @@ public class TileGenerator : MonoBehaviour
     private bool m_HasRerolled = false;
     private int m_CurrentReroll = 0;
     private int m_CurrentHeight = 0;
+    private int m_SameIDCounter = 0;
+    private int m_PreviousID = -1;
+    public List<int> m_AvaliableIDs = new List<int>();
 
     //Platform counters
     private int m_TotalTileNum = 0;
@@ -54,6 +59,16 @@ public class TileGenerator : MonoBehaviour
 
 	void Start()
     {
+        for (int i = 0; i < m_TilePrefabs.Count; i++)
+        {
+            if (m_TilePrefabs[i].GetComponent<TileIdentifier>())
+            {
+                int id = m_TilePrefabs[i].GetComponent<TileIdentifier>().m_ID;
+                if (!m_AvaliableIDs.Contains(id))
+                    m_AvaliableIDs.Add(id);
+            }
+        }
+
         m_Identifiers.Add(m_Lane1ID);
         m_Identifiers.Add(m_Lane2ID);
         m_Identifiers.Add(m_Lane3ID);
@@ -73,12 +88,6 @@ public class TileGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
             GenerateTiles(5);
-
-        //Generate more platforms if current number is low
-        if (m_CurTileNum <= 4)
-        {
-            GenerateTiles(5);
-        }
 	}
 
     void GenerateLevel(int num)
@@ -181,7 +190,7 @@ public class TileGenerator : MonoBehaviour
 
     void SpawnSingleTile()
     {
-        m_TileClone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], Vector3.zero, Quaternion.identity);
+        m_TileClone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], Vector3.zero, Quaternion.Euler(-90, 0, 0));
 
         if (m_TileClone.GetComponent<TileIdentifier>())
             m_PlatformID = m_TileClone.GetComponent<TileIdentifier>().m_ID;
@@ -251,6 +260,22 @@ public class TileGenerator : MonoBehaviour
     int RollPrefab()
     {
         int random = Random.Range(0, m_TilePrefabs.Count);
+        if (random == m_PreviousID)
+            m_SameIDCounter++;
+
+        if (m_SameIDCounter >= m_SameIDNum)
+        {
+            List<int> temp = new List<int>();
+            for (int i = 0; i < m_AvaliableIDs.Count; i++)
+            {
+                if (m_AvaliableIDs[i] != m_PreviousID)
+                    temp.Add(m_AvaliableIDs[i]);
+            }
+
+        }
+
+        if (m_TilePrefabs[random].GetComponent<TileIdentifier>())
+            m_PreviousID = m_TilePrefabs[random].GetComponent<TileIdentifier>().m_ID;
 
         if (m_RerollSame)
         {
