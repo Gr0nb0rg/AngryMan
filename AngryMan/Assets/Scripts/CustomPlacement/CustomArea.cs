@@ -47,6 +47,6 @@ public class CustomArea : ScriptableObject {
     }
     private GameObject InstantiateSquare(GameObject square, Vector3 pos, Transform parent)
     {
-        return Instantiate(square, pos, GameSettings.m_squareRotation, parent);
+        return Instantiate(square, pos, Quaternion.Euler(0,0,0), parent);
     }
 }

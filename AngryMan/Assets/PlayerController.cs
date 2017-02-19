@@ -2,31 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//[RequireComponent(typeof(Rigidbody2D))]
-//[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour {
 
-    [Header("Settings")]
     // Settings
+    [Header("Settings")]
+    [Header("Initial movement speed:")]
     [SerializeField]
     private float m_speed;
+
+    [Header("Dash distance in tiles:")]
+    [Range(0, 2)]
+    [SerializeField]
+    private float m_dashDistance;
     [SerializeField]
     private float m_dashSpeed;
+
     [SerializeField]
     private float m_laneSwitchSpeed;
-
     [SerializeField]
     private float m_screamForce;
 
-    [SerializeField]
-    private int m_currentLane;
-
-    [Space(10)]
-    [SerializeField]
-    private float m_distanceBetweenLanes;
-    [SerializeField]
-    private float m_dashDistance;
-
+    private int m_currentLane = 1;
     private bool m_inAction = false;
 
     private Dictionary<int, Vector2> Lanes;
@@ -40,26 +38,38 @@ public class PlayerController : MonoBehaviour {
     private Collider m_collider;
     private Animator m_animator;
 
-    public Rigidbody[] m_rigidbodies;
-    public Collider[] m_colliders;
+    private Rigidbody[] m_rigidbodies;
+    private Collider[] m_colliders;
 
     private ScreamBox m_screamBox;
 
-    void Start ()
+    private GameOverseer m_gameOverseer;
+
+    void Awake ()
     {
-        m_leftLanePos = new Vector2(-m_distanceBetweenLanes, 0);
-        m_rightLanePos = new Vector2(m_distanceBetweenLanes, 0);
+        // Scale settings from non-retarded lvls to, well.. Yeah...
+        m_speed *= 100;
+        m_dashSpeed *= 100;
+        m_laneSwitchSpeed *= 100;
+        m_screamForce *= 100;
+
+        m_gameOverseer = FindObjectOfType<GameOverseer>();
+
+
+        m_dashDistance = GameSettings.m_distanceBetweenSquares * m_dashDistance;
+
+        m_leftLanePos = new Vector2(-GameSettings.m_distanceBetweenSquares, 0);
+        m_rightLanePos = new Vector2(GameSettings.m_distanceBetweenSquares, 0);
         m_middleLanePos = Vector2.zero;
 
         m_screamBox = FindObjectOfType<ScreamBox>();
         m_rigidbodies = GetComponentsInChildren<Rigidbody>();
         m_colliders = GetComponentsInChildren<Collider>();
-        //m_rigidbody = GetComponent<Rigidbody2D>();
+
         Lanes = new Dictionary<int, Vector2>();
         Lanes.Add(0, m_leftLanePos);
         Lanes.Add(1, m_middleLanePos);
         Lanes.Add(2, m_rightLanePos);
-        //m_rigidbody = GetComponent<Rigidbody2D>();
         m_animator = GetComponent<Animator>();
         m_rigidbody = GetComponent<Rigidbody>();
         m_collider = GetComponent<Collider>();
@@ -161,38 +171,40 @@ public class PlayerController : MonoBehaviour {
         print(col.gameObject.tag);
         if (!m_inAction)
         {
-            print(col.gameObject.tag);
             if(col.gameObject.tag != "Pushable")
                 EnableRagdoll(col.relativeVelocity);
-        }
-            
+            m_gameOverseer.ActivateGameoverscreen();
+        }  
     }
 
     IEnumerator Scream()
     {
         // Play sound
         // Add forces 
-        for (int i = 0; i < m_screamBox.ActiveScreamTargets.Count; i++)
+        if(m_screamBox.m_activeScreamTargets.Count > 0)
         {
-            if(m_screamBox.ActiveScreamTargets[i].gameObject.tag == "PushableActivator")
+            for (int i = 0; i < m_screamBox.ActiveScreamTargets.Count; i++)
             {
-                m_screamBox.ActiveScreamTargets[i].gameObject.GetComponent<PropCharacter>().EnableRagdoll(Vector3.up * m_screamForce);
+                if (m_screamBox.ActiveScreamTargets[i].gameObject.tag == "PushableActivator")
+                {
+                    m_screamBox.ActiveScreamTargets[i].gameObject.GetComponent<PropCharacter>().EnableRagdoll(Vector3.up * m_screamForce);
+                }
+                else
+                {
+                    //m_screamBox.ActiveScreamTargets[i].velocity = Vector3.up * m_screamForce;
+                }
             }
-            else
-            {
-                //m_screamBox.ActiveScreamTargets[i].velocity = Vector3.up * m_screamForce;
-            }
+            // wait for sound to stop
+            yield return new WaitForSeconds(1);
+            m_inAction = false;
         }
-        // wait for sound to stop
-        yield return new WaitForSeconds(1);
-        m_inAction = false;
     }
 
     IEnumerator DashRight()
     {
         while (true)
         {
-            if (transform.position.x >= Lanes[m_currentLane].x + m_distanceBetweenLanes)
+            if (transform.position.x >= Lanes[m_currentLane].x + GameSettings.m_distanceBetweenSquares)
             {
                 m_rigidbody.velocity = new Vector2(0, 0);
                 m_currentLane++;
@@ -209,7 +221,7 @@ public class PlayerController : MonoBehaviour {
     {
         while (true)
         {
-            if (transform.position.x <= Lanes[m_currentLane].x - m_distanceBetweenLanes)
+            if (transform.position.x <= Lanes[m_currentLane].x - GameSettings.m_distanceBetweenSquares)
             {
                 m_rigidbody.velocity = new Vector2(0, 0);
                 m_currentLane--;

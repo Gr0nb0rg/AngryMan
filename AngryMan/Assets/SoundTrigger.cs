@@ -14,7 +14,6 @@ public class SoundTrigger : MonoBehaviour {
     {
         m_source = GetComponent<AudioSource>();
         m_collider = GetComponent<CapsuleCollider>();
-        m_collider.radius = 13;
 	}
 
     void OnTriggerEnter(Collider col)

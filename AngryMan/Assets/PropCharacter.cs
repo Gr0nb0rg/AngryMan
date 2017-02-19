@@ -5,6 +5,8 @@ using UnityEngine;
 public class PropCharacter : MonoBehaviour {
 
     // Components
+    private GameOverseer m_gameOverseer;
+
     private Rigidbody m_rigidbody;
     private Collider m_collider;
 
@@ -13,6 +15,8 @@ public class PropCharacter : MonoBehaviour {
 
     void Awake()
     {
+        m_gameOverseer = FindObjectOfType<GameOverseer>();
+
         m_rigidbody = GetComponent<Rigidbody>();
         m_collider = GetComponent<Collider>();
 
@@ -56,6 +60,7 @@ public class PropCharacter : MonoBehaviour {
                 m_rigidbodies[i].velocity = initialVelocity*0.5f;
             }
         }
+        m_gameOverseer.IncreaseScore(25);
     }
 
     void OnCollisionEnter(Collision col)
