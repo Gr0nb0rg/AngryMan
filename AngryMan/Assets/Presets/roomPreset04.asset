@@ -18,14 +18,14 @@ MonoBehaviour:
   - {fileID: 1804354145389866, guid: 1514723761d40844da201844ceda4490, type: 2}
   - {fileID: 0}
   m_LeftLane:
-  - {fileID: 1473849056535916, guid: de1457d3c98faa74bb10c02dd76aa67d, type: 2}
-  - {fileID: 1473849056535916, guid: de1457d3c98faa74bb10c02dd76aa67d, type: 2}
+  - {fileID: 1202017781530564, guid: e13c46666fbb9a14c9d81dd49d2f531b, type: 2}
+  - {fileID: 1715381423729870, guid: 07bbbf4f1fbebaa45a91c932f983e7af, type: 2}
   - {fileID: 0}
   - {fileID: 1203976368286966, guid: 174f649639a7b1f4ca6fb5d16f5bd123, type: 2}
   - {fileID: 1656081194706710, guid: 1f6709a5d4e39504299638f6f3240efa, type: 2}
   m_rightLane:
   - {fileID: 0}
-  - {fileID: 1452284494231502, guid: db7ada61d1187f848aa6b9cb9cb89ac6, type: 2}
   - {fileID: 0}
-  - {fileID: 1768184824541530, guid: addd14712b7a1f146b963df48597c487, type: 2}
+  - {fileID: 0}
+  - {fileID: 1673525494943318, guid: 1088c8e2772f15643963094c2344d131, type: 2}
   - {fileID: 0}

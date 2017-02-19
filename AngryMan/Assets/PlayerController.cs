@@ -158,6 +158,7 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter(Collision col)
     {
+        print(col.gameObject.tag);
         if (!m_inAction)
         {
             print(col.gameObject.tag);

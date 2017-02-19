@@ -24,8 +24,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_rightLane:
-  - {fileID: 1768184824541530, guid: addd14712b7a1f146b963df48597c487, type: 2}
-  - {fileID: 1768184824541530, guid: addd14712b7a1f146b963df48597c487, type: 2}
+  - {fileID: 1102411107377612, guid: 2cb2bca2114f9e541a898fcaddfc104c, type: 2}
+  - {fileID: 1202017781530564, guid: e13c46666fbb9a14c9d81dd49d2f531b, type: 2}
   - {fileID: 0}
-  - {fileID: 1452284494231502, guid: db7ada61d1187f848aa6b9cb9cb89ac6, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
