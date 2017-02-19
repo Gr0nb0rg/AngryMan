@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26b42068a20b0041b5f2e7c9878bc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TutorialArea: {fileID: 11400000, guid: 669ee3b2622111f4493d088e1f422032, type: 2}
   m_CustomAreas: {fileID: 11400000, guid: de09059b62e77a4499dc131cd9f5b181, type: 2}
   m_LevelPiecePrefab: {fileID: 1005823034263716, guid: 29582f39116e1b34b8a3f81243957c12,
     type: 2}

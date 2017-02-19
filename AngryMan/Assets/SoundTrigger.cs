@@ -13,7 +13,7 @@ public class SoundTrigger : MonoBehaviour {
     void Awake()
     {
         m_source = GetComponent<AudioSource>();
-        m_collider = GetComponent<CapsuleCollider>();
+        m_collider = GetComponent<Collider>();
         //m_collider.radius = 13;
     }
 
