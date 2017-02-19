@@ -25,6 +25,8 @@ public class TileChecker : MonoBehaviour
     void Update()
     {
         //if (m_Move)
+        //    m_Move.Translate(0, 5, 0);
+        //if (m_Move)
         //{
         //    if (Input.GetKey(KeyCode.W))
         //        m_Move.Translate(0, 10, 0);

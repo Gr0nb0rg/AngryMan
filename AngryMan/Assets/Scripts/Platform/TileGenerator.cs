@@ -6,6 +6,7 @@ public class TileGenerator : MonoBehaviour
 {
     //Public vars
     [Header("Spawnable objects")]
+    public CustomArea m_TutorialArea;
     public AvailableCustomAreas m_CustomAreas;
     public GameObject m_LevelPiecePrefab;
     public GameObject m_ChunkPrefab;
@@ -71,6 +72,15 @@ public class TileGenerator : MonoBehaviour
         {
             m_LaneCounters.Add(0);
             m_TileIDs.Add(0);
+        }
+
+        if (m_TutorialArea)
+        {
+            GameObject tut = m_TutorialArea.InstantiateArea(Vector3.zero);
+            GenerateLevel(22);
+            if (tut)
+                tut.transform.SetParent(m_SummaryClone.transform);
+            m_CurrentHeight += 22;
         }
 
         for (int i = 0; i < 2; i++)
