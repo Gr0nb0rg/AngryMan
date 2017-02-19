@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Name: Available Custom Areas
   m_EditorClassIdentifier: 
   m_customAreas:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ab24bdeef1cce664cbe3f6a9ef198009, type: 2}
+  - {fileID: 11400000, guid: 7f5930091bdbe454c8bcdbf3377d8add, type: 2}
+  - {fileID: 11400000, guid: ca023a5d6129c94408d2328beffa686e, type: 2}
+  - {fileID: 11400000, guid: dcada603701a3c44a83525aa2358240e, type: 2}
+  - {fileID: 11400000, guid: 90e6a791d2edb4041bf9e2e8d328dfb1, type: 2}
+  - {fileID: 11400000, guid: 28c9048ab3fc0d74bb866b64d3f38dac, type: 2}
+  - {fileID: 11400000, guid: 3582bf476e2cf254ca3bde2d94b22870, type: 2}

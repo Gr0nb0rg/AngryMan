@@ -6,6 +6,7 @@ public class TileGenerator : MonoBehaviour
 {
     //Public vars
     [Header("Spawnable objects")]
+    public AvailableCustomAreas m_CustomAreas;
     public GameObject m_LevelPiecePrefab;
     public GameObject m_ChunkPrefab;
     public List<GameObject> m_TilePrefabs = new List<GameObject>();
@@ -87,8 +88,18 @@ public class TileGenerator : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
-            GenerateTiles(5);
-	}
+        {
+            GenerateTiles(4);
+
+            if (Random.Range(0, 2) == 1)
+            {
+            }
+            //else
+            //{
+            //    m_CurrentHeight += m_CustomAreas.CreateRandomCustomArea(new Vector3(0, m_CurrentHeight * m_YIncrease, 0));
+            //}
+        }
+    }
 
     void GenerateLevel(int num)
     {
@@ -190,7 +201,7 @@ public class TileGenerator : MonoBehaviour
 
     void SpawnSingleTile()
     {
-        m_TileClone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], Vector3.zero, Quaternion.Euler(-90, 0, 0));
+        m_TileClone = (GameObject)Instantiate(m_TilePrefabs[RollPrefab()], new Vector3(0, m_CurrentHeight * m_YIncrease, 0), Quaternion.Euler(-90, 0, 0));
 
         if (m_TileClone.GetComponent<TileIdentifier>())
             m_PlatformID = m_TileClone.GetComponent<TileIdentifier>().m_ID;
@@ -225,17 +236,14 @@ public class TileGenerator : MonoBehaviour
                 break;
             }
         }
-
-        float y = m_CurrentPosition.y + m_YIncrease;
         float x = 0;
         if (!m_OverridenIndex)
             x = temp[randomLane];
         else
             x = m_Lanes[randomLane];
 
-        //m_Poslist.Add(new Vector3(x, y + m_YIncrease, 0.0f));
-        m_CurrentPosition = new Vector3(x, y, -3f);
-        m_TileClone.transform.position = m_CurrentPosition;
+        m_CurrentPosition = new Vector3(x, 0, -3f);
+        m_TileClone.transform.position = new Vector3(m_CurrentPosition.x, m_TileClone.transform.position.y, m_CurrentPosition.z);
 
         for (int i = 0; i < m_Lanes.Count; i++)
         {

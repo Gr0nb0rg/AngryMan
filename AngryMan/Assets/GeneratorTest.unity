@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f26b42068a20b0041b5f2e7c9878bc7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_CustomAreas: {fileID: 11400000, guid: de09059b62e77a4499dc131cd9f5b181, type: 2}
   m_LevelPiecePrefab: {fileID: 1005823034263716, guid: 29582f39116e1b34b8a3f81243957c12,
     type: 2}
   m_ChunkPrefab: {fileID: 1232708661888252, guid: f1ee1222d06e5324497517d23ce818b9,
@@ -291,7 +292,9 @@ MonoBehaviour:
   m_EmptyLaneCounter: 3
   m_RerollSame: 1
   m_RerollTimes: 2
+  m_SameIDNum: 3
   m_InitNumber: 10
+  m_AvaliableIDs: 
 --- !u!4 &1828263022
 Transform:
   m_ObjectHideFlags: 0
