@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class ImpactSound : MonoBehaviour {
     [SerializeField]
     private bool m_stopAmbienceOnCollision;
@@ -13,7 +12,7 @@ public class ImpactSound : MonoBehaviour {
     private bool m_hasImpacted = false;
 
 	void Start () {
-        m_source = GetComponent<AudioSource>();
+        m_source = GetComponentInParent<AudioSource>();
 	}
 
     void OnCollisionEnter(Collision col)

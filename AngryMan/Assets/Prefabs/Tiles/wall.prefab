@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4696583444559558}
   - component: {fileID: 65473504273285748}
-  - component: {fileID: 82381370545417840}
   - component: {fileID: 114311911398020616}
   - component: {fileID: 54293161185099670}
   - component: {fileID: 114632783037723284}
@@ -74,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4265880297448198}
   - component: {fileID: 114356199839685154}
+  - component: {fileID: 82223565154156044}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -239,12 +239,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.6042156, y: 105.023, z: 79.88301}
   m_Center: {x: 43.796883, y: 47.505463, z: 0.069309235}
---- !u!82 &82381370545417840
+--- !u!82 &82223565154156044
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1049694201983644}
+  m_GameObject: {fileID: 1656081194706710}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}

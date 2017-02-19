@@ -21,7 +21,7 @@ public class WallCollision : MonoBehaviour {
         {
             if (m_player.InAction)
             {
-                Destroy(transform.parent.gameObject);
+                Destroy(transform.gameObject);
             }
         }
     }
