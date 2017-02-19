@@ -251,4 +251,6 @@ public class PlayerController : MonoBehaviour {
             yield return null;
         }
     }
+
+    public bool InAction { get { return m_inAction; } }
 }

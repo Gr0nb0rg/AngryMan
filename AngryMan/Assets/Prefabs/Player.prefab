@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 136684209015779572}
   - component: {fileID: 114365943834796826}
   m_Layer: 0
-  m_Name: CharacterRiggTest
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,10 +16,8 @@ public class GameOverseer : MonoBehaviour {
     {
         m_currentScoreText = GameObject.Find("CurrentScoreText").GetComponent<TextMesh>();
         m_gameoverTextObject = GameObject.Find("GameoverObject");
-        m_finalScoreText = GameObject.Find("HighscoreText").GetComponent<TextMesh>();
-        m_highscoreText = GameObject.Find("YourScoreText").GetComponent<TextMesh>();
-
-
+        m_finalScoreText = GameObject.Find("YourScoreText").GetComponent<TextMesh>();
+        m_highscoreText = GameObject.Find("HighscoreText").GetComponent<TextMesh>();
 
         m_currentScoreText.gameObject.SetActive(true);
         m_gameoverTextObject.SetActive(false);
@@ -48,11 +46,8 @@ public class GameOverseer : MonoBehaviour {
         m_highscoreText.text = PlayerPrefs.GetInt("Highscore", 0).ToString();
     }
 
-
     void ReloadScene()
     {
         SceneManager.LoadScene(0);
     }
-
-
 }

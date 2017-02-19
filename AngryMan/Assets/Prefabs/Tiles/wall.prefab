@@ -20,6 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4696583444559558}
   - component: {fileID: 65473504273285748}
+  - component: {fileID: 82381370545417840}
+  - component: {fileID: 114311911398020616}
+  - component: {fileID: 54293161185099670}
+  - component: {fileID: 114632783037723284}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -70,8 +74,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4265880297448198}
   - component: {fileID: 114356199839685154}
-  - component: {fileID: 82354514472796570}
-  - component: {fileID: 114262022548213220}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -210,6 +212,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1287196842522362}
   m_Mesh: {fileID: 4300000, guid: bfb1c3794979b8848a02b1c591205e1f, type: 3}
+--- !u!54 &54293161185099670
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049694201983644}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65473504273285748
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -222,12 +239,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 7.6042156, y: 105.023, z: 79.88301}
   m_Center: {x: 43.796883, y: 47.505463, z: 0.069309235}
---- !u!82 &82354514472796570
+--- !u!82 &82381370545417840
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1656081194706710}
+  m_GameObject: {fileID: 1049694201983644}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -302,12 +319,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114262022548213220
+--- !u!114 &114311911398020616
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1656081194706710}
+  m_GameObject: {fileID: 1049694201983644}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0224f61e54f62b94f8e7c17ac60a9a74, type: 3}
@@ -328,3 +345,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ID: 9
+--- !u!114 &114632783037723284
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049694201983644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5549ba51c328d049af20675fed859f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
