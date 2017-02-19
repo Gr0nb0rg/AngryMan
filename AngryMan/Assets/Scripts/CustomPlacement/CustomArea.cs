@@ -9,7 +9,7 @@ public class CustomArea : ScriptableObject {
     public List<GameObject> m_LeftLane;
     public List<GameObject> m_rightLane;
 
-    public GameObject InstantiateArea(Vector3 firstMidPos)
+    public int InstantiateArea(Vector3 firstMidPos)
     {
         if ((m_middleLane.Count == m_rightLane.Count) && (m_middleLane.Count == m_LeftLane.Count))
         {
@@ -37,10 +37,10 @@ public class CustomArea : ScriptableObject {
                     GameObject rightSquare = InstantiateSquare(m_rightLane[i], rightSquarePos, resultingPrefab.transform);
                 }
             }
-            return resultingPrefab;
+            return m_middleLane.Count;
         }
         Debug.Log("Lanes are not completed");
-        return null;
+        return 0;
     }
     private GameObject InstantiateSquare(GameObject square, Vector3 pos, Transform parent)
     {

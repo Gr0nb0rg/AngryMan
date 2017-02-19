@@ -21,16 +21,5 @@ public class CustomAreaEditor : Editor {
             Undo.RecordObject(m_target, "InstantiateArea()");
             m_target.InstantiateArea(Vector3.zero);
         }
-
     }
-
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
