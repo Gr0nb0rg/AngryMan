@@ -174,11 +174,6 @@ public class TileGenerator : MonoBehaviour
                 }
             }
 
-            for (int j = 0; j < m_Lanes.Count; j++)
-            {
-
-            }
-
         }
 
         m_CurrentHeight++;
@@ -230,7 +225,7 @@ public class TileGenerator : MonoBehaviour
             x = m_Lanes[randomLane];
 
         //m_Poslist.Add(new Vector3(x, y + m_YIncrease, 0.0f));
-        m_CurrentPosition = new Vector3(x, y, -5f);
+        m_CurrentPosition = new Vector3(x, y, -3f);
         m_TileClone.transform.position = m_CurrentPosition;
 
         for (int i = 0; i < m_Lanes.Count; i++)

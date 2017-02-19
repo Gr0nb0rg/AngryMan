@@ -11,7 +11,8 @@ public class PropCharacter : MonoBehaviour {
     public Rigidbody[] m_rigidbodies;
     public Collider[] m_colliders;
 
-    void Start () {
+    void Awake()
+    {
         m_rigidbody = GetComponent<Rigidbody>();
         m_collider = GetComponent<Collider>();
 
@@ -19,6 +20,9 @@ public class PropCharacter : MonoBehaviour {
         m_rigidbodies = GetComponentsInChildren<Rigidbody>();
 
         DisableRagdoll();
+    }
+
+    void Start () {
 
     }
 
