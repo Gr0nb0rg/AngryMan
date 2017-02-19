@@ -4,9 +4,9 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class GameSettings : ScriptableObject {
-    public static float m_distanceBetweenSquares = 10;
+    public static float m_distanceBetweenSquares = 80;
     public static Quaternion m_squareRotation = Quaternion.Euler(-90, 0, 0);
-    public static float m_squareHeight = 10;
+    public static float m_squareHeight = 80;
 
     //[Header("Local Spawn positions for props in a square")]
     //[HideInInspector]
